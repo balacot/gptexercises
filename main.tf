@@ -2,6 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-module "raiz" {
-	source = "./mimodulo"
+module "primerec2" {
+	source = "./modulo"
 }
