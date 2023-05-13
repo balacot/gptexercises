@@ -3,10 +3,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "gptinstancia" {
-  ami           = "ami-007855ac798b5175e"
-  instance_type = "t2.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
 
   tags = {
-    Name = "GPT Instancia"
+    Name = var.instance_name
   }
 }
