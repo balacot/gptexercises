@@ -1,23 +1,11 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
-module "primerec2" {
-	source = "./modulo"
-}
-	
-module "segundoec2" {
-  source = "./modulo"
-
-  ami            = "ami-007855ac798b5175e"
-  instance_type  = "t2.micro"
-  instance_name  = "GPT Instancia segunda"
-}
-	
-module "tercerec2" {
-  source = "./modulo"
-
-  ami            = "ami-007855ac798b5175e"
-  instance_type  = "t2.micro"
-  instance_name  = "GPT Instancia Tercero"
+resource "aws_db_instance" "default" {
+  allocated_storage    = var.allocated_storage
+  storage_type         = "gp2"
+  engine               = var.engine
+  engine_version       = var.engine_version
+  instance_class       = var.instance_class
+  name                 = var.name
+  username             = var.username
+  password             = var.password
+  parameter_group_name = "default.${var.engine}.${var.engine_version}"
 }
